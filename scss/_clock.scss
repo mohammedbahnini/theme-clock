@@ -1,0 +1,127 @@
+@use "vars" as *;
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  button {
+    color: white;
+    border: none;
+    outline: none;
+    background-color: $btn_bg;
+    padding: 1rem 2rem;
+    font-size: 1.25rem;
+    border-radius: 0.25rem;
+    margin-bottom: 3rem;
+    transition: color $transition-color, background-color $transition-color;
+    cursor: pointer;
+  }
+  .clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__circle {
+      position: relative;
+      width: 15rem;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      z-index: 0;
+      &::after {
+        content: "";
+        width: 0.75rem;
+        aspect-ratio: 1;
+        background-color: black;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -1;
+        transition: background-color $transition-color;
+      }
+      &::before {
+        content: "";
+        width: 1.125rem;
+        aspect-ratio: 1;
+        background-color: $niddle_sec_bg;
+        border-radius: 50%;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: -2;
+        transition: background-color $transition-color;
+      }
+      &-seconds {
+        width: 45%;
+        background-color: $niddle_sec_bg;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 4px;
+        transform: translate(-2px, -2px) rotate(-45deg);
+        transform-origin: center left;
+        z-index: -3;
+        //transition: transform 0.2s linear;
+        border-radius: 2px;
+        transition: background-color $transition-color;
+      }
+      &-minutes {
+        width: 50%;
+        background-color: $niddle_min_bg;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 4px;
+        transform: translate(-2px, -2px) rotate(50deg);
+        transform-origin: center left;
+        z-index: -3;
+        border-radius: 2px;
+        transition: background-color $transition-color;
+      }
+      &-hours {
+        width: 40%;
+
+        background-color: $niddle_min_bg;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 4px;
+        transform: translate(-2px, -2px) rotate(50deg);
+        transform-origin: center left;
+        z-index: -3;
+        border-radius: 2px;
+        transition: background-color $transition-color;
+      }
+    }
+    &__timer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      //padding: 3rem 0;
+      &-time {
+        font-size: 5rem;
+        color: rgba(0, 0, 0, 0.75);
+        margin-bottom: 2rem;
+        transition: color $transition-color;
+      }
+      &-date {
+        font-size: 1.25rem;
+        color: rgba(0, 0, 0, 0.5);
+        font-weight: lighter;
+        letter-spacing: 1px;
+        transition: color $transition-color;
+        .day-number {
+          color: white;
+          background-color: rgba(0, 0, 0.75);
+          padding: 0.25rem 0.5rem;
+          border-radius: 0.25rem;
+          transition: color $transition-color,
+            background-color $transition-color;
+        }
+      }
+    }
+  }
+}

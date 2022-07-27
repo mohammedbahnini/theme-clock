@@ -1,0 +1,38 @@
+body.dark {
+  background-color: rgb(44, 51, 51);
+  main {
+    button {
+      color: rgb(44, 51, 51);
+      background-color: white;
+    }
+    .clock {
+      .clock__circle {
+        &::after {
+          background-color: white;
+        }
+        &::before {
+          background-color: lighten(red, 10);
+        }
+      }
+      .clock__circle-hours,
+      .clock__circle-minutes {
+        background-color: white;
+      }
+      .clock__circle-seconds {
+        background-color: lighten(red, 10);
+      }
+      &__timer {
+        &-time {
+          color: white;
+        }
+        &-date {
+          color: white;
+        }
+      }
+    }
+    .clock__timer-date .day-number {
+      color: rgba(0, 0, 0, 0.75);
+      background-color: white;
+    }
+  }
+}

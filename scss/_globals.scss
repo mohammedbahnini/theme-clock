@@ -1,0 +1,22 @@
+@use "vars" as *;
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: Helvatica, sans-serif;
+  background-color: $bg_color;
+  transition: background-color $transition-color;
+}
+.container {
+  max-width: 1440px;
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+
+  margin: 0 auto;
+}
